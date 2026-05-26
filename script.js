@@ -1,14 +1,22 @@
-function generatePoem(event) {
-  event.preventDefault();
-
+function displayPoem(response) {
   new Typewriter("#poem", {
-    strings: ["You put the red back in the rose"],
+    strings: response.data.answer,
     autoStart: true,
     delay: 1,
     cursor: "",
   });
-  let poemElement = document.querySelector("#poem");
-  poemElement.innerHTML = "You put the red back in the rose";
+}
+function generatePoem(event) {
+  event.preventDefault();
+
+  let instructionsInput = document.querySelector("#poem-topic");
+  let apiKey = "2b73f4b12btfbe34cedefo9a6e8a2fb0";
+  let context =
+    "You are an African poet who writes short poems inspired by any topic.All your short poems have a essence of Africa.Your task is to write a 5 line poem in basic HTML and sign Ntaoleng`s AI project in a <strong> element.Do not disolay html on the poem.Please follow all the user instructions.";
+  let prompt = `User instructions:Generate a short African poem about ${instructionsInput.value}`;
+  let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
+
+  axios.get(apiUrl).then(displayPoem);
 }
 
 let poemFormElement = document.querySelector("#poem-form");
