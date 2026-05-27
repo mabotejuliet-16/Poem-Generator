@@ -16,14 +16,31 @@ h1 {
 .container {
   margin: 120px auto;
   max-width: 600px;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: rgb(247, 231, 231);
+  box-shadow: 5px 10px 15px rgba(39, 33, 66, 0.5);
+  box-shadow: 5px 10px 15px rgba(39, 33, 66, 0.5);
 }
 
-form {
+.form-container {
   padding: 30px;
   background-color: white;
   border-radius: 10px;
-  display: flex;
   box-shadow: 5px 10px 15px rgba(39, 33, 66, 0.5);
+}
+
+.hint {
+  text-align: center;
+  margin-top: 5px;
+  margin-left: -80px;
+  font-size: 12px;
+  opacity: 0.8;
+
+  color: rgb(136, 73, 84);
+}
+form {
+  display: flex;
 }
 
 .poem-topic {
@@ -49,13 +66,16 @@ form {
 
 .poem {
   font-size: 14px;
-  background-color: white;
+  background-color: rgb(247, 231, 231);
   padding: 20px;
   line-height: 24px;
   border-left: 3px solid #885df1;
-  box-shadow: 5px 10px 15px rgba(39, 33, 66, 0.03);
+  border-radius: 4px;
 }
 
+.hidden {
+  display: none;
+}
 footer {
   text-align: center;
   font-size: 13px;
@@ -67,4 +87,26 @@ a {
 }
 poem.strong {
   color: #885df1;
+}
+
+.hourglass {
+  display: block;
+  background: #333;
+  margin: 3em auto;
+  width: 2em;
+  height: 4em;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 50%, 100% 100%, 0% 100%, 50% 50%);
+  animation: turn 2s linear infinite;
+}
+
+@keyframes turn {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
